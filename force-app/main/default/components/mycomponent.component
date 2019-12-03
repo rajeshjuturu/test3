@@ -1,0 +1,46 @@
+<apex:component controller="MyComponentController">
+	<apex:attribute name="crecords" 
+					description="records used in pagination"
+					type="contact[]"
+					assignTo="{!idList}"
+					required="false"/>
+	<apex:attribute name="cnames"
+					description="list of columns names displayed in table"
+					type="String[]"
+					assignTo="{!nameList}"
+					required="false"/>
+	<apex:form >
+		<apex:pageBlock id="pg">
+			<apex:pageBlockTable value="{!myobjects}" var="rec" >
+				<apex:repeat value="{!nameList}" var="f">
+					<apex:column value="{!rec[f]}"/>
+				</apex:repeat>
+			</apex:pageBlockTable>
+			<apex:panelGrid columns="7">
+				<apex:commandButton value="First"
+									action="{!setRecords.first}"
+									status="mystatus"
+									reRender="pg" 
+									disabled="{!setRecords.HasPrevious}"/>
+				<apex:commandButton value="Previous"
+									action="{!setRecords.previous}" 
+									status="mystatus" 
+									reRender="pg" 
+									disabled="{!setRecords.HasPrevious}"/>
+				<apex:commandButton value="Next"
+									action="{!setRecords.next}" 
+									status="mystatus"
+									reRender="pg" 
+									disabled="{!setRecords.HasNext}"/>
+				<apex:commandButton value="Last"
+									action="{!setRecords.last}"
+									status="mystatus"
+                                    reRender="pg" 
+									disabled="{!setRecords.HasNext}"/>
+				<apex:outputPanel >
+					<apex:actionStatus id="mystatus" startText="Fetching..." stopText=""/>
+				</apex:outputPanel>
+			</apex:panelGrid>
+		</apex:pageBlock>
+	</apex:form>
+</apex:component>

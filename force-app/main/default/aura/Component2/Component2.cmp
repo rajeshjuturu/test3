@@ -1,0 +1,7 @@
+<aura:component controller="demoServer">
+    <aura:attribute name="accList" type="Account[]" />
+    <lightning:button label="Click Me" onclick="{!c.getAccountRecords}"/><br/>
+    <aura:iteration var="record" items="{!v.accList}">
+        {!record.Name}    <br/>
+    </aura:iteration>
+</aura:component>

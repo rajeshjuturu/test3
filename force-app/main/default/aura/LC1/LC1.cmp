@@ -1,0 +1,4 @@
+<aura:component >
+   <div class="Red">Hello Hai</div> 
+	
+</aura:component>

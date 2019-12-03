@@ -1,0 +1,45 @@
+<!--
+<aura:component implements='flexipage:availableForAllPageTypes,flexipage:availableForRecordHome'>
+    <aura:attribute name="testDate" type="date"/>
+    <aura:attribute name="dateValidationError" type="boolean"/>
+    <div class='wide'>
+    <lightning:input name="inputdate"
+                     value="{!v.testDate}"
+                     label="Enter Date"
+                     onchange="{!c.validateDate}"
+                     type='date'
+                     class="{!v.dateValidationError ? 'slds-has-error' : ''}"/>
+    <aura:if isTrue="{!dateValidationError}">
+        <div class="slds-text-color_error slds-p-left_x-small">Data must be in present or in future..</div>
+    </aura:if>
+    <br/>
+    <lightning:button disabled="{!v.dateValidationError}"
+                        variant="brand"
+                        onclick="{!c.submit}"
+                        label="Sumbit"/>
+    </div>
+</aura:component> -->
+<aura:component implements='flexipage:availableForAllPageTypes,flexipage:availableForRecordHome'>
+    <aura:attribute name="testDate" type="date" />
+    <aura:attribute name="dateValidationError" type="boolean" />
+    <div class="wide">
+        <lightning:input class="{! v.dateValidationError ? 'slds-has-error' : ''}"
+                         type="date"
+                         label="Enter Date"
+                         value="{!v.testDate}"
+                         name="date"
+                         onchange="{!c.dateUpdate}" />
+        
+        <aura:if isTrue="{!v.dateValidationError}">
+            <div class="slds-text-color_error slds-p-left_x-small">
+                Date must be in present or in future..
+            </div>
+        </aura:if>    
+        
+        <br/>
+        
+        <lightning:button disabled="{!v.dateValidationError}" 
+                          variant="brand" onclick="{!c.submit}" label="Submit">
+        </lightning:button>
+    </div>
+</aura:component>

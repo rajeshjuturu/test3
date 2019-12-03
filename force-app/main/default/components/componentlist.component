@@ -1,0 +1,6 @@
+<apex:component >
+    <apex:attribute name="accmap" type="map" description="display Account view"/>
+    <apex:repeat value="{!accmap}" var="a">
+        <apex:outputText value="{!accmap[a]}"></apex:outputText><br/>
+    </apex:repeat>
+</apex:component>

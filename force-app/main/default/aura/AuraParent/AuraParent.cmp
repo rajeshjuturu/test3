@@ -1,0 +1,4 @@
+<aura:component>
+    <c:AuraChild hello="{!c.IamRunning}" hai="This value set from parent component"/>
+   
+</aura:component>

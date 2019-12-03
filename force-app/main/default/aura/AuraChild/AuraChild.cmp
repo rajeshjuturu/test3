@@ -1,0 +1,7 @@
+<aura:component>
+    <aura:attribute name="hello" type="Aura.Action"/>
+    <aura:attribute name="hai" type="String"/>
+       
+    <lightning:button label="{!v.hai}" onclick="{!v.hello}"/>
+
+</aura:component>
